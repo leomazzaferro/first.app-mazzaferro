@@ -1,5 +1,5 @@
 import React from "react";
-
+import ItemCount from './ItemCount';
 
 //bootstrap export
 import Button from 'react-bootstrap/Button';
@@ -7,7 +7,11 @@ import Card from 'react-bootstrap/Card';
 
 
 
-const Item = () => {
+const Item = ({producto}) => {
+
+  const onAdd = (quantity) => {
+    console.log (`Compraste ${quantity} unidades`)
+}
   return (
     <div>
       <Card
@@ -15,14 +19,17 @@ const Item = () => {
           width: "18rem",
         }}
       >
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src={producto.img} />
         <Card.Body>
-          <Card.Title> Card Title </Card.Title>{" "}
+          <Card.Title> {producto.name} </Card.Title>{" "}
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card 's content.{" "}
+            {producto.description}
           </Card.Text>{" "}
-          <Button variant="primary"> Go somewhere </Button>{" "}
+          <Card.Text>
+            ${producto.price}
+          </Card.Text>{" "}
+          <Button variant="primary"> Ver </Button>{" "}
+          <ItemCount initial={1} stock={5} onAdd={onAdd} />
         </Card.Body>{" "}
       </Card>{" "}
     </div>
