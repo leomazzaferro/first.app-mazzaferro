@@ -1,13 +1,13 @@
 import React from "react";
 import ItemCount from './ItemCount';
 
-//bootstrap export
+//bootstrap import
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
 
-const Item = ({producto}) => {
+const Item = ({product}) => {
 
   const onAdd = (quantity) => {
     console.log (`Compraste ${quantity} unidades`)
@@ -17,16 +17,18 @@ const Item = ({producto}) => {
       <Card
         style={{
           width: "18rem",
+          margin: "1rem",
+          padding: "8px",
         }}
       >
-        <Card.Img variant="top" src={producto.img} />
+        <Card.Img variant="top" src={product.img} />
         <Card.Body>
-          <Card.Title> {producto.name} </Card.Title>{" "}
+          <Card.Title> {product.name} </Card.Title>{" "}
           <Card.Text>
-            {producto.description}
+            {product.description}
           </Card.Text>{" "}
           <Card.Text>
-            ${producto.price}
+            ${product.price}
           </Card.Text>{" "}
           <Button variant="primary"> Ver </Button>{" "}
           <ItemCount initial={1} stock={5} onAdd={onAdd} />

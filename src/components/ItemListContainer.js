@@ -5,12 +5,13 @@ import {data} from '../mocks/DataApi'
 
 function ItemListContainer({greeting}) {
 
-    const [listaProductos, setListaProductos] = useState([])
+    const [listProducts, setListProducts] = useState([])
 
 
     useEffect (()=>{
         data
-        .then((resp)=> setListaProductos(resp))
+        .then((resp)=> setListProducts(resp))
+        
     }, [])
 
 
@@ -18,12 +19,13 @@ function ItemListContainer({greeting}) {
     
     return (
         <div>
-            <h2>{greeting}</h2>
-            <ItemList listaProductos={listaProductos} />
-
+            <h1>{greeting}</h1>
             
-
-            
+            {listProducts.length !== 0 ? (
+                <ItemList listProducts={listProducts} />
+            ) : (
+                <h2>Cargando...</h2>
+            )}
         </div>
     );
 }
