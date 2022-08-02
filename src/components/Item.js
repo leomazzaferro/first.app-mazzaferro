@@ -31,7 +31,7 @@ const Item = ({product}) => {
             ${product.price}
           </Card.Text>{" "}
           <Button variant="primary"> Ver </Button>{" "}
-          <ItemCount initial={1} stock={5} onAdd={onAdd} />
+          <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
         </Card.Body>{" "}
       </Card>{" "}
     </div>
