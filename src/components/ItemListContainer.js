@@ -1,7 +1,7 @@
 
 import React , {useEffect, useState} from 'react';
 import ItemList from './ItemList';
-import {data} from '../mocks/DataApi'
+import data from '../mocks/dataApi'
 
 function ItemListContainer({greeting}) {
 
@@ -13,7 +13,6 @@ function ItemListContainer({greeting}) {
         .then((resp)=> setListProducts(resp))
         
     }, [])
-
 
     
     

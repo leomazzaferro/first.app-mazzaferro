@@ -1,5 +1,6 @@
 import React from "react";
 import ItemCount from './ItemCount';
+import { Link } from "react-router-dom";
 
 //bootstrap import
 import Button from 'react-bootstrap/Button';
@@ -7,12 +8,15 @@ import Card from 'react-bootstrap/Card';
 
 
 
-const Item = ({product}) => {
+const Item = ({product}) => { 
 
   const onAdd = (quantity) => {
-    console.log (`Compraste ${quantity} unidades`)
-}
+    const message = `Compraste ${quantity} unidad`
+    quantity === 1 ? console.log (message) : console.log (`${message}es`)
+  }
+
   return (
+    <Link to={`/item/${product.id}`}>
     <div>
       <Card
         style={{
@@ -35,6 +39,7 @@ const Item = ({product}) => {
         </Card.Body>{" "}
       </Card>{" "}
     </div>
+    </Link>
   );
 };
 
