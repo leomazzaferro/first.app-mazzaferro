@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "name": "Remera Forest",
+        "category": "remeras",
+        "description": "Remera estampada, algodon 100%",
+        "price":1600,
+        "stock":15,
+        "img":"https://picsum.photos/200"
+    },
+    {
+        "id": 2,
+        "name": "Remera IronMan",
+        "category": "remeras",
+        "description": "Remera estampada, spum, sublimado",
+        "price":1500,
+        "stock":15,
+        "img":"https://picsum.photos/201"
+    },
+    {
+        "id": 3,
+        "name": "Remera Angus",
+        "category": "remeras",
+        "description": "Remera estampada, spum, sublimado",
+        "price":1500,
+        "stock":15,
+        "img":"https://picsum.photos/202"
+    },
+    {
+        "id": 4,
+        "name": "Remera",
+        "category": "remeras",
+        "description": "Remera lisa, algodon 100%",
+        "price":1400,
+        "stock":15,
+        "img":"https://picsum.photos/203"
+    },
+    {
+        "id": 5,
+        "name": "Bermuda Tifo",
+        "category": "bermudas y pantalones",
+        "description": "Bermuda de gabardina, a rayas con detalles",
+        "price":2500,
+        "stock":15,
+        "img":"https://picsum.photos/204"
+    },
+    {
+        "id": 6,
+        "name": "Bermuda Lime",
+        "category": "bermudas y pantalones",
+        "description": "Bermuda de corderoy fino",
+        "price":2900,
+        "stock":15,
+        "img":"https://picsum.photos/205"
+    },
+    {
+        "id": 7,
+        "name": "Bermuda Brush",
+        "category": "bermudas y pantalones",
+        "description": "Bermuda de gabardina",
+        "price":2600,
+        "stock":15,
+        "img":"https://picsum.photos/206"
+    },
+    {
+        "id": 8,
+        "name": "Pantalon Jogin",
+        "category": "bermudas y pantalones",
+        "description": "Pantalon jogin",
+        "price":2700,
+        "stock":15,
+        "img":"https://picsum.photos/207"
+    },
+    {
+        "id": 9,
+        "name": "Pantalon Babucha",
+        "category": "bermudas y pantalones",
+        "description": "Pantalon de gabardina estilo babucha",
+        "price":2800,
+        "stock":15,
+        "img":"https://picsum.photos/208"
+    },
+    {
+        "id": 10,
+        "name": "Campera Atlas",
+        "category": "buzos y camperas",
+        "description": "Campera combinada, pilotin",
+        "price":3800,
+        "stock":15,
+        "img":"https://picsum.photos/209"
+    },
+    {
+        "id": 11,
+        "name": "Buzo Cangaru",
+        "category": "buzos y camperas",
+        "description": "Buzo estilo canguro de friza",
+        "price":3200,
+        "stock":15,
+        "img":"https://picsum.photos/210"
+    },
+    {
+        "id": 12,
+        "name": "Pullover Astix",
+        "category": "buzos y camperas",
+        "description": "Pullover",
+        "price":3500,
+        "stock":15,
+        "img":"https://picsum.photos/208"
+    }
+]

@@ -1,19 +1,29 @@
 import React from 'react'
 import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react';
-import getOneProduct from '../mocks/getOneProduct';
+//import getOneProduct from '../mocks/getOneProduct';
+import { useParams } from 'react-router-dom';
 
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState([]);
-    
+    const { id } = useParams();
 
-    useEffect(() => {
-        getOneProduct
-            .then((res) => setItem(res))
-            .catch((err) => alert("Ha ocurrido un error", err));
-    }, []);
+
+
+
+
+    const getOneProduct = (id) => {
+      fetch("../JSON/DataApi.json")
+          .then((response) => response.json())
+          .then((data) => setItem(data.filter((item) => item.id === parseInt(id))[0])
+          );
+  };
+
+  useEffect(() => {
+      getOneProduct(id);
+  }, [id]);
 
   return (
     <div>  

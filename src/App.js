@@ -12,11 +12,13 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
+      
       <Routes>
         
         <Route path="/" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
         
         <Route path="/item/:id" element={<ItemDetailContainer />} />
+
       </Routes>
     </div>
   );

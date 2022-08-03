@@ -1,21 +1,27 @@
 
 import React , {useEffect, useState} from 'react';
 import ItemList from './ItemList';
-import data from '../mocks/dataApi'
+//import data from '../mocks/dataApi'
 
 function ItemListContainer({greeting}) {
 
     const [listProducts, setListProducts] = useState([])
 
 
-    useEffect (()=>{
-        data
-        .then((resp)=> setListProducts(resp))
-        
-    }, [])
+    
 
-    
-    
+    const getListProducts = () => {
+        fetch("../JSON/DataApi.json")
+            .then((response) => response.json())
+            .then((data) => setListProducts(data));
+        };
+
+
+    useEffect(() => {
+        getListProducts();
+    }, []);
+        
+        
     return (
         <div>
             <h1>{greeting}</h1>
