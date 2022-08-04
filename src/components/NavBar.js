@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 // bootstrap import
 import { Container , Nav , Navbar , NavDropdown } from 'react-bootstrap';
 
@@ -26,7 +25,6 @@ function NavBar() {
                                 <Link to="/category/camperas"><NavDropdown.Item href="#action/3.2">
                                 Camperas
                                 </NavDropdown.Item></Link>
-                                
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

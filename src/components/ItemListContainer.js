@@ -8,12 +8,9 @@ import { useParams } from 'react-router-dom'
 function ItemListContainer({greeting}) {
 
     const [listProducts, setListProducts] = useState([])
-    console.log(listProducts);
-    const { category } = useParams();
-    console.log(category);
-
     
-
+    const { category } = useParams();
+    
     const getListProducts = (category) => {
         fetch("../JSON/DataApi.json")
             .then((response) => response.json())
@@ -29,18 +26,12 @@ function ItemListContainer({greeting}) {
         };
 
         useEffect(() => {
-            
             getListProducts(category)
-
         }, [category]);
 
-    
-        
-        
     return (
         <div>
-            <h1>{greeting}</h1>
-            
+            <h1>{greeting}</h1>            
             {listProducts.length !== 0 ? (
                 <ItemList listProducts={listProducts} />
             ) : (

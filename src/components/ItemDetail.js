@@ -3,10 +3,10 @@ import ItemCount from './ItemCount'
 
 const ItemDetail = ({item}) => {
 
-    const onAdd = (quantity) => {
-        const message = `Compraste ${quantity} unidad`
-        quantity === 1 ? console.log (message) : console.log (`${message}es`)
-    }
+  const onAdd = (quantity) => {
+      const message = `Compraste ${quantity} unidad`
+      quantity === 1 ? console.log (message) : console.log (`${message}es`)
+  }
 
   return (
     <div>
