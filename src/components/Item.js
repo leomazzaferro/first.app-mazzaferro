@@ -3,8 +3,8 @@ import ItemCount from './ItemCount';
 import { Link } from "react-router-dom";
 
 //bootstrap import
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import {Button , Card } from 'react-bootstrap';
+
 
 
 

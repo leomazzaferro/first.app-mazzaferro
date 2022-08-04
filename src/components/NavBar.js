@@ -1,11 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 // bootstrap import
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Container , Nav , Navbar , NavDropdown } from 'react-bootstrap';
 
 function NavBar() {
     return ( 
@@ -16,14 +14,19 @@ function NavBar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Link to="*"><Nav.Link  href="#home">Home</Nav.Link></Link>
                             <Nav.Link href="#link">Carrito</Nav.Link>
                             <NavDropdown title="Productos" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Remeras</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
+                                <Link to="/category/remeras"><NavDropdown.Item href="#action/3.2">
+                                Remeras
+                                </NavDropdown.Item></Link>
+                                <Link to="/category/pantalones"><NavDropdown.Item href="#action/3.2">
                                 Pantalones
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Buzos</NavDropdown.Item>
+                                </NavDropdown.Item></Link>
+                                <Link to="/category/camperas"><NavDropdown.Item href="#action/3.2">
+                                Camperas
+                                </NavDropdown.Item></Link>
+                                
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

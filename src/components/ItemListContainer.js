@@ -1,25 +1,40 @@
 
 import React , {useEffect, useState} from 'react';
 import ItemList from './ItemList';
-//import data from '../mocks/dataApi'
+import { useParams } from 'react-router-dom'
+
+
 
 function ItemListContainer({greeting}) {
 
     const [listProducts, setListProducts] = useState([])
-
+    console.log(listProducts);
+    const { category } = useParams();
+    console.log(category);
 
     
 
-    const getListProducts = () => {
+    const getListProducts = (category) => {
         fetch("../JSON/DataApi.json")
             .then((response) => response.json())
-            .then((data) => setListProducts(data));
+            .then((data)  => {
+                if (category) {
+                    setListProducts(
+                        data.filter((product) => product.category === category)
+                    );
+                } else {
+                    setListProducts(data);
+                }
+            } );
         };
 
+        useEffect(() => {
+            
+            getListProducts(category)
 
-    useEffect(() => {
-        getListProducts();
-    }, []);
+        }, [category]);
+
+    
         
         
     return (
