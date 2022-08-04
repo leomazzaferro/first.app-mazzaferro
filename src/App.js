@@ -17,11 +17,11 @@ function App() {
         
         <Route path="/" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
         
-        <Route path="/category/:category" element={<ItemListContainer />} />
+        <Route path="/category/:category" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
 
         <Route path="/item/:id" element={<ItemDetailContainer />} />
 
-        <Route path="*" element={<ItemListContainer />} />
+        <Route path="*" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
 
       </Routes>
     </div>
