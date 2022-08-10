@@ -1,16 +1,27 @@
 
 import './App.css';
 import NavBar from './components/NavBar';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { Routes , Route } from 'react-router-dom';
+import styled from 'styled-components';
+// bootstrap import
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+const StyledDiv = styled.div `
 
+    text-align: center;
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+`
 
 function App() {
   return (
-    <div className="App">
+    <StyledDiv>
       <NavBar/>
 
       <Routes>
@@ -24,7 +35,7 @@ function App() {
         <Route path="*" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
 
       </Routes>
-    </div>
+    </StyledDiv>
   );
 }
 

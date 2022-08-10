@@ -1,9 +1,18 @@
 import React from "react";
 import ItemCount from './ItemCount';
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 //bootstrap import
 import {Button , Card } from 'react-bootstrap';
+
+const StyledDiv = styled.div `
+
+  /* a {
+    color: black;
+  } */
+
+`
 
 const Item = ({product}) => { 
 
@@ -13,8 +22,8 @@ const Item = ({product}) => {
   }
 
   return (
+      <StyledDiv>
     <Link to={`/item/${product.id}`}>
-      <div>
         <Card
           style={{
             width: "18rem",
@@ -34,8 +43,8 @@ const Item = ({product}) => {
             <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
           </Card.Body>{" "}
         </Card>{" "}
-      </div>
     </Link>
+      </StyledDiv>
   );
 };
 
