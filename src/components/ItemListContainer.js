@@ -19,6 +19,7 @@ function ItemListContainer({greeting}) {
                     setListProducts(
                         data.filter((product) => product.category === category)
                     );
+                    console.log(`Estas en ${category}`)
                 } else {
                     setListProducts(data);
                 }

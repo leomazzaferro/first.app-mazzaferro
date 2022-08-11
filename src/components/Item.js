@@ -1,5 +1,4 @@
 import React from "react";
-import ItemCount from './ItemCount';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -15,11 +14,6 @@ const StyledDiv = styled.div `
 `
 
 const Item = ({product}) => { 
-
-  const onAdd = (quantity) => {
-    const message = `Compraste ${quantity} unidad`
-    quantity === 1 ? console.log (message) : console.log (`${message}es`)
-  }
 
   return (
       <StyledDiv>
@@ -40,7 +34,6 @@ const Item = ({product}) => {
               ${product.price}
             </Card.Text>{" "}
             <Button variant="primary"> Ver </Button>{" "}
-            <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
           </Card.Body>{" "}
         </Card>{" "}
     </Link>

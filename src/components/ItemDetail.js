@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({item}) => {
+  const [count, setCount] = useState(0)
 
-  const onAdd = (quantity) => {
-      const message = `Compraste ${quantity} unidad`
-      quantity === 1 ? console.log (message) : console.log (`${message}es`)
+  const onAdd = (quantityToAdd) => {
+      const message = `Añadiste ${quantityToAdd} unidad`
+      quantityToAdd === 1 ? console.log (message) : console.log (`${message}es`)
+      setCount(quantityToAdd)
+      console.log(count)
+      
   }
 
   return (
