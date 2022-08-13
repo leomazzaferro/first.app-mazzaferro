@@ -7,6 +7,7 @@ import { Routes , Route } from 'react-router-dom';
 import styled from 'styled-components';
 // bootstrap import
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CartContext from './context/CartContext';
 
 const StyledDiv = styled.div `
 
@@ -22,19 +23,16 @@ const StyledDiv = styled.div `
 function App() {
   return (
     <StyledDiv>
-      <NavBar/>
-
-      <Routes>
-        
-        <Route path="/" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
-        
-        <Route path="/category/:category" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
-
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
-
-        <Route path="*" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
-
-      </Routes>
+      <CartContext.Provider value={[]}>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
+          <Route path="/category/:category" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="*" element={<ItemListContainer greeting='Bienvenidos!!!' />} />
+          <Route path='/cart' element={<h1>Carrito</h1>} />
+        </Routes>
+      </CartContext.Provider>
     </StyledDiv>
   );
 }
