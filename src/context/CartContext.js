@@ -8,9 +8,9 @@ const CartProvider = ({children}) => {
     
     const isInCart = () => {}
 
-    const removeItem = () => {
-        
-
+    const removeItem = (id) => {
+        const cartDraft = cart.filter ((item) => item.id !== id);
+        setCart(cartDraft)
     }
 
     const cleanCart = () => {
