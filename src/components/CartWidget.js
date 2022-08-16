@@ -4,24 +4,28 @@ import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { CartContext } from '../context/CartContext';
 import styled from 'styled-components';
 
-const StyledCount = styled.h5`
-    color: white;
-    padding-top: 4px;
-    margin-left: 4px;
+const StyledDiv = styled.div `
+    display: flex;
+    
+`
+
+const StyledIcon = styled(HiOutlineShoppingCart) `
+    width: 25px;
+    height: 25px
+`
+
+const StyledCount = styled.p `
+    color: black;
 `
 
 function CartWidget() {
-    const data = useContext(CartContext);
-    console.log(data)
+    const {cantInCart} = useContext(CartContext);
+    console.log(cantInCart)
         return (
-        <div>
-            <HiOutlineShoppingCart 
-                style={{
-                    width: "25px",
-                    height: "25px",
-                }} />
-            <StyledCount><h3>hola</h3></StyledCount>
-        </div>
+        <StyledDiv>
+            <StyledIcon/>
+            <StyledCount>{cantInCart}</StyledCount>
+        </StyledDiv>
     )  
 }
 

@@ -1,16 +1,20 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState , useEffect, useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 import ItemCount from './ItemCount';
 //import { useNavigate } from "react-router-dom";
 
 
 const ItemDetail = ({item}) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState();
+  console.log(item)
   //const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
 
   const handleAdd = (quantityToAdd) => {
       const message = `Añadiste ${quantityToAdd} unidad`;
       quantityToAdd === 1 ? console.log (message) : console.log (`${message}es`);
       setCount(quantityToAdd);
+      addToCart(item, quantityToAdd)
       //navigate('/cart');
   }
 
