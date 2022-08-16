@@ -1,13 +1,12 @@
-
 import React , {useEffect, useState} from 'react';
 import ItemList from './ItemList';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
 
 
 function ItemListContainer({greeting}) {
 
-    const [listProducts, setListProducts] = useState([])
+    const [listProducts, setListProducts] = useState([]);
     
     const { category } = useParams();
     
@@ -27,12 +26,12 @@ function ItemListContainer({greeting}) {
         };
 
         useEffect(() => {
-            getListProducts(category)
+            getListProducts(category);
         }, [category]);
 
     return (
         <div>
-            <h1>{greeting}</h1>            
+            <h1>{greeting}</h1>
             {listProducts.length !== 0 ? (
                 <ItemList listProducts={listProducts} />
             ) : (

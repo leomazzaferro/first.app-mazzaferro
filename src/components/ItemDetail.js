@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import ItemCount from './ItemCount';
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
+
 
 const ItemDetail = ({item}) => {
   const [count, setCount] = useState(0);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleAdd = (quantityToAdd) => {
       const message = `Añadiste ${quantityToAdd} unidad`;
       quantityToAdd === 1 ? console.log (message) : console.log (`${message}es`);
       setCount(quantityToAdd);
-      console.log(count);
-      navigate('/cart');
+      //navigate('/cart');
   }
+
+  useEffect(() => {
+    console.log({count});
+  }, [count]);
 
   return (
     <div>
@@ -25,4 +29,4 @@ const ItemDetail = ({item}) => {
   )
 }
 
-export default ItemDetail
+export default ItemDetail;

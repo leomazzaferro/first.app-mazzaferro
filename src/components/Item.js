@@ -17,7 +17,7 @@ const Item = ({product}) => {
 
   return (
       <StyledDiv>
-    <Link to={`/item/${product.id}`}>
+    
         <Card
           style={{
             width: "18rem",
@@ -33,10 +33,12 @@ const Item = ({product}) => {
             <Card.Text>
               ${product.price}
             </Card.Text>{" "}
-            <Button variant="primary"> Ver </Button>{" "}
+            <Link to={`/item/${product.id}`}>
+              <Button variant="primary"> Ver </Button>{" "}
+            </Link>
           </Card.Body>{" "}
         </Card>{" "}
-    </Link>
+    
       </StyledDiv>
   );
 };

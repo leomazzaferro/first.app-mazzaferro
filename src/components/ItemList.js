@@ -1,6 +1,6 @@
-import React from 'react'
-import Item from './Item'
-import styled from 'styled-components'
+import React from 'react';
+import Item from './Item';
+import styled from 'styled-components';
 
 const StyledDiv = styled.div `
   display: flex;
@@ -12,9 +12,9 @@ const StyledDiv = styled.div `
 const ItemList = ({listProducts}) => {
   return (
     <StyledDiv>
-        {listProducts.map((product)=> <Item key={product.id} product={product} /> )}
+        {listProducts.map((product)=> <Item key={product.id} product={product} /> )};
     </StyledDiv>
   )
 }
 
-export default ItemList
+export default ItemList;
