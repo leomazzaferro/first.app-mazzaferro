@@ -6,7 +6,7 @@ const CartProvider = ({children}) => {
     const [ cart , setCart ] = useState([]);
     console.log(cart)
     
-    const isInCart = () => {}
+    const isInCart = (id) => cart.find(item => item.id === id) ? true : false;
 
     const removeItem = (id) => {
         const cartDraft = cart.filter ((item) => item.id !== id);
@@ -18,35 +18,16 @@ const CartProvider = ({children}) => {
     }
 
     const addToCart = (item, quantityToAdd) => {
-        console.log({item, quantityToAdd})
-        if (cart.length === 0) {
-            const itemToAdd = {
-                ...item,
-                quantity: quantityToAdd,
-            }
-            
-            setCart([...cart, itemToAdd])
-            return
+        let cartDraft = []
+        let product = cart.find(itemId => itemId.id === item.id)
+        if (product) {
+            product.quantity += quantityToAdd;
+            cartDraft = [...cart];
+        } else {
+            let product = {...item, quantity: quantityToAdd};
+            cartDraft = [...cart, product]
         }
-
-        const itemDuplicateIndex = cart.findIndex((itemInTheCart) => itemInTheCart.id === item.id)
-
-        if (itemDuplicateIndex >= 0) {
-            const itemToUpdate = {
-                ...item,
-                quantity: cart[itemDuplicateIndex].quantity + quantityToAdd
-            }
-            const cartDraft = [...cart]
-            cartDraft[itemDuplicateIndex] = itemToUpdate
-            setCart(cartDraft)
-            } else {
-            const itemToAdd = {
-                ...item,
-                quantity: quantityToAdd
-            }
-            const cartDraft = [...cart, itemToAdd]
-            setCart(cartDraft)
-        }
+        setCart(cartDraft)
     }
     
     const valueToShare = {
