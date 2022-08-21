@@ -1,32 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
-import { HiOutlineShoppingCart } from 'react-icons/hi';
-import { CartContext } from '../context/CartContext';
-import styled from 'styled-components';
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { CartContext } from "../context/CartContext";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const StyledDiv = styled.div `
-    display: flex;
-    
-`
+const StyledDiv = styled.div`
+  display: flex;
+`;
 
-const StyledIcon = styled(HiOutlineShoppingCart) `
-    width: 25px;
-    height: 25px
-`
+const StyledIcon = styled(HiOutlineShoppingCart)`
+  width: 25px;
+  height: 25px;
+`;
 
-const StyledCount = styled.p `
-    color: black;
-`
+const StyledCount = styled.span`
+  color: black;
+`;
 
 function CartWidget() {
-    const {cantInCart} = useContext(CartContext);
-    console.log(cantInCart)
-        return (
-        <StyledDiv>
-            <StyledIcon/>
-            <StyledCount>{cantInCart}</StyledCount>
-        </StyledDiv>
-    )  
+  const { totalProducts } = useContext(CartContext);
+
+  console.log(totalProducts)
+  
+  return (
+    <StyledDiv>
+      <div><Link as={Link} to="/cart"><StyledIcon /></Link></div>
+      <div><StyledCount>{totalProducts() || "" }</StyledCount></div>
+    </StyledDiv>
+  );
 }
 
 export default CartWidget;

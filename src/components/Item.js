@@ -26,18 +26,18 @@ const Item = ({product}) => {
           }}>
           <Card.Img variant="top" src={product.img} />
           <Card.Body>
-            <Card.Title> {product.name} </Card.Title>{" "}
+            <Card.Title> {product.name} </Card.Title>
             <Card.Text>
               {product.description}
-            </Card.Text>{" "}
+            </Card.Text>
             <Card.Text>
               ${product.price}
-            </Card.Text>{" "}
+            </Card.Text>
             <Link to={`/item/${product.id}`}>
-              <Button variant="primary"> Ver </Button>{" "}
+              <Button variant="primary"> Ver </Button>
             </Link>
-          </Card.Body>{" "}
-        </Card>{" "}
+          </Card.Body>
+        </Card>
     
       </StyledDiv>
   );
