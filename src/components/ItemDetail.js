@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
-//import { useNavigate } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
   const [count, setCount] = useState();
-  console.log(item);
-  //const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
+  const [goToCart , setGoToCart] = useState(false);
 
   const handleAdd = (quantityToAdd) => {
     const message = `Añadiste ${quantityToAdd} unidad`;
     quantityToAdd === 1 ? console.log(message) : console.log(`${message}es`);
     setCount(quantityToAdd);
     addToCart(item, quantityToAdd);
-    //navigate('/cart');
+    setGoToCart(true)
   };
 
   useEffect(() => {
@@ -27,7 +26,14 @@ const ItemDetail = ({ item }) => {
       <h3>{item.name}</h3>
       <p>{item.description}</p>
       <img src={`${item.img}`} alt={`${item.img}`}></img>
-      <ItemCount initial={1} stock={item.stock} onAdd={handleAdd} />
+      {
+        goToCart ? 
+          <div>
+            <Link as={Link} to="/cart"><button>Ir A Pagar</button></Link>
+            <Link as={Link} to="/*"><button>Continuar Comprando</button></Link>
+          </div>
+          : <ItemCount initial={1} stock={item.stock} onAdd={handleAdd} />
+      }
     </div>
   );
 };

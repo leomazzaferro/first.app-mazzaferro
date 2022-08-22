@@ -29,7 +29,7 @@ function NavBar() {
                 <NavDropdown.Item as={Link} to="/category/pantalones" href="#action/3.2">
                   Pantalones
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/category/camperas" href="#action/3.2">
+                <NavDropdown.Item as={Link} to="/category/abrigos" href="#action/3.2">
                   Camperas
                 </NavDropdown.Item>
               </NavDropdown>

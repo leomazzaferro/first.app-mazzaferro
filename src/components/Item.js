@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 //bootstrap import
 import {Button , Card } from 'react-bootstrap';
 
@@ -13,7 +13,12 @@ const StyledDiv = styled.div `
 
 `
 
-const Item = ({product}) => { 
+const Item = ({product}) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/item/${product.id}`)
+  }
 
   return (
       <StyledDiv>
@@ -34,7 +39,7 @@ const Item = ({product}) => {
               ${product.price}
             </Card.Text>
             <Link to={`/item/${product.id}`}>
-              <Button variant="primary"> Ver </Button>
+              <Button variant="primary" onClick={handleClick}> Ver </Button>
             </Link>
           </Card.Body>
         </Card>

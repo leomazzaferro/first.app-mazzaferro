@@ -23,3 +23,46 @@ const data = new Promise((resolve, reject) => {
 })
 
 export default data;
+
+
+/*  const getOneProduct = (id) => {
+    fetch("../JSON/DataApi.json")
+      .then((response) => response.json())
+      .then((data) =>
+        setItem(data.filter((item) => item.id === parseInt(id))[0])
+      );
+  }; */
+
+  /*   const [value, setValue] = useState('')
+
+  useEffect(() => {
+    const db = getFirestore();
+    const docRef = doc(db, "items", "CMMSonQzvK6vvhEyOwu0");
+    getDoc(docRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = {
+            id: snapshot.id,
+            ...snapshot.data()
+          }
+          console.log(data);
+          setValue(data);
+        }
+      })
+      .catch((error) => console.error("error" , error));
+  }, []); */
+
+  /*   const getListProducts = (category) => {
+    fetch("../JSON/DataApi.json")
+      .then((response) => response.json())
+      .then((data) => {
+        if (category) {
+          setListProducts(
+            data.filter((product) => product.category === category)
+          );
+          console.log(`Estas en ${category}`);
+        } else {
+          setListProducts(data);
+        }
+      });
+  }; */
