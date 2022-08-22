@@ -20,8 +20,6 @@ const StyledCount = styled.span`
 
 function CartWidget() {
   const { totalProducts } = useContext(CartContext);
-
-  console.log(totalProducts)
   
   return (
     <StyledDiv>

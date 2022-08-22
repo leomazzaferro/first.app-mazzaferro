@@ -19,7 +19,7 @@ function NavBar() {
               <Nav.Link as={Link} to="/*">
                 Home
               </Nav.Link>
-              <Nav.Link href="#link">
+              <Nav.Link as={Link} to="/cart" href="#link">
                 Carrito
               </Nav.Link>
               <NavDropdown title="Productos" id="basic-nav-dropdown">
