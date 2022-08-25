@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+// COMPONENTS
 import ItemList from "./ItemList";
+// DEPENDENCY
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 
@@ -18,12 +20,14 @@ function ItemListContainer({ greeting }) {
           const data = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}) );
         setListProducts(data);
         })
+        .catch((error) => console.error(error))
     } else {
       getDocs(itemCollection)
-      .then((snapshot) => {
-        const data = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}) );
-        setListProducts(data);
-      })
+        .then((snapshot) => {
+          const data = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}) );
+          setListProducts(data);
+        })
+        .catch((error) => console.error(error))
     }
   }, [category]);
 

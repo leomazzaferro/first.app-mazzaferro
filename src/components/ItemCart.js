@@ -10,23 +10,29 @@ const StyledDiv = styled.div `
   margin-bottom: 1rem;
   padding: 10px;
 `
+const StyledImg = styled.img `
+  width: 300px;
 
-function ItemCart({product}) {
+`
+
+function ItemCart({products}) {
   const { removeItem } = useContext(CartContext);
   
   return (
-
-    <StyledDiv>
-      <img src={product.img} alt={product.name} />
-      <div>
-        <p>Nombre:{product.name}</p>
-        <p>Cantidad:{product.quantity}</p>
-        <p>Precio:{product.price}</p>
-        <p>Total:{product.quantity * product.price}</p>
-        <button onClick={() => removeItem(product.id)}>ELiminar</button>
-      </div>
-    </StyledDiv>
-
+    <div>
+      {products.map((product) => (
+        <StyledDiv>
+          <div>
+            <StyledImg src={product.img} alt={product.name} />
+            <p>Nombre:{product.name}</p>
+            <p>Cantidad:{product.quantity}</p>
+            <p>Precio:{product.price}</p>
+            <p>Total:{product.quantity * product.price}</p>
+            <button onClick={() => removeItem(product.id)}>ELiminar</button>
+          </div>
+        </StyledDiv>
+      ))}
+    </div>
   )
 }
 

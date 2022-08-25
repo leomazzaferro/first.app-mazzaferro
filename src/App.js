@@ -1,14 +1,13 @@
-import "./App.css";
+// COMPONENTS
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import Cart from "./components/Cart";
+import Cart from "./components/CartContainer";
+// DEPENDECY
 import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-
-// bootstrap import
-import "bootstrap/dist/css/bootstrap.min.css";
 import CartProvider from "./context/CartContext";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const StyledDiv = styled.div`
   text-align: center;

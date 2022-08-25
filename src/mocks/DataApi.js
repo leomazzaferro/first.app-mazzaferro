@@ -66,3 +66,6 @@ export default data;
         }
       });
   }; */
+
+/*   const message = `Añadiste ${quantityToAdd} unidad`;
+  quantityToAdd === 1 ? console.log(message) : console.log(`${message}es`); */
