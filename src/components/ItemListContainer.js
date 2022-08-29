@@ -15,7 +15,7 @@ function ItemListContainer({ greeting }) {
     const itemCollection = collection(db, "items");
     if (category) {
       const itemsCollectionQuery = query(itemCollection, where('category', '==', category));
-      getDocs(itemsCollectionQuery) 
+      getDocs(itemsCollectionQuery)
         .then((snapshot) => {
           const data = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}) );
         setListProducts(data);
