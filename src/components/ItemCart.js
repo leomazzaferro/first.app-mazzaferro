@@ -1,39 +1,54 @@
+// CONTEXT
+import { CartContext } from '../context/CartContext';
+// DEPENDENCYS
 import React , { useContext } from 'react'
 import styled from 'styled-components';
-import { CartContext } from '../context/CartContext';
+import { MdDelete } from "react-icons/md";
 
-const StyledDiv = styled.div `
-  border: 1px solid;
-  width: 400px;
+const StyledContainer = styled.div `
+  border-bottom: 1px solid;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
   margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 10px;
 `
 const StyledImg = styled.img `
-  width: 300px;
-
+  width: 100px;
 `
+
+const StyledDiv = styled.div `
+  align-self: center;
+`
+const StyledIcon = styled(MdDelete)`
+  width: 25px;
+  height: 25px;
+`;
 
 function ItemCart({products}) {
   const { removeItem } = useContext(CartContext);
   
   return (
-    <div>
+    <>
       {products.map((product) => (
-        <StyledDiv>
-          <div>
-            <StyledImg src={product.img} alt={product.name} />
-            <p>Nombre:{product.name}</p>
-            <p>Cantidad:{product.quantity}</p>
-            <p>Precio:{product.price}</p>
-            <p>Total:{product.quantity * product.price}</p>
-            <button onClick={() => removeItem(product.id)}>ELiminar</button>
-          </div>
-        </StyledDiv>
+        <StyledContainer key={product.id}>
+            <StyledDiv>  
+              <StyledImg src={product.img} alt={product.name} />
+            </StyledDiv>
+            <StyledDiv>
+              <p>Nombre: {product.name}</p>
+              <p>Cantidad: {product.quantity}</p>
+              <p>Precio: ${product.price}</p>
+            </StyledDiv>
+            <StyledDiv>
+              <p>SubTotal: ${product.quantity * product.price}</p>
+            </StyledDiv>
+            <StyledDiv>
+              <button onClick={() => removeItem(product.id)}>{<StyledIcon/>}</button>
+            </StyledDiv>
+        </StyledContainer>
       ))}
-    </div>
+    </>
   )
 }
 
-export default ItemCart
+export default ItemCart;

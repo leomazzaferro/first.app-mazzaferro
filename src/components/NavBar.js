@@ -1,9 +1,9 @@
+// COMPONENTS
+import CartWidget from "./CartWidget";
+// DEPENDENCYS
 import React from "react";
 import { Link } from "react-router-dom";
-//import styled from 'styled-components';
-// bootstrap import
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import CartWidget from "./CartWidget";
 
 function NavBar() {
   return (
@@ -13,7 +13,7 @@ function NavBar() {
           <Navbar.Brand as={Link} to="/*" href="#home">
             OLLIAN
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/*">
@@ -23,19 +23,19 @@ function NavBar() {
                 Carrito
               </Nav.Link>
               <NavDropdown title="Productos" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/category/remeras" href="#action/3.2" >
+                <NavDropdown.Item as={Link} to="/category/remeras" href="#action/3.2">
                   Remeras
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/category/pantalones" href="#action/3.2">
                   Pantalones
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/category/abrigos" href="#action/3.2">
-                  Camperas
+                  Abrigos
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
-          <CartWidget />
+          <CartWidget/>
         </Container>
       </Navbar>
     </div>

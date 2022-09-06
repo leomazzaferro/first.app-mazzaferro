@@ -1,5 +1,7 @@
-import React from 'react';
+// COMPONENTS
 import Item from './Item';
+// DEPENDENCYS
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div `

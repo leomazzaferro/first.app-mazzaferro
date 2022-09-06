@@ -1,8 +1,8 @@
+// DEPENDENCYS
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-//bootstrap import
 import {Button , Card } from 'react-bootstrap';
 
 const StyledDiv = styled.div `

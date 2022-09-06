@@ -35,11 +35,11 @@ const CartProvider = ({ children }) => {
 
   const totalPrice = () => {
     return cart.reduce((acc, product) => acc + product.quantity * product.price, 0)
-  }
+  };
 
   const totalProducts = () => {
     return cart.reduce((acc, product) => acc + product.quantity, 0)
-  }
+  };
 
   const valueToShare = {
     cart,

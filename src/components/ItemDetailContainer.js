@@ -1,7 +1,15 @@
+// COMPONENTS
 import ItemDetail from "./ItemDetail";
+// DEPENDENCYS
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { doc , getDoc , getFirestore } from "firebase/firestore";
+import styled from "styled-components";
+
+
+const StyledDiv = styled.div `
+  margin: 48px;
+`
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState([]);
@@ -24,10 +32,9 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>ItemDetailContainer</h1>
+    <StyledDiv>
       <ItemDetail item={item} />
-    </div>
+    </StyledDiv>
   );
 };
 

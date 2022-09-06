@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-
-import { HiOutlineShoppingCart } from "react-icons/hi";
+// CONTEXT
 import { CartContext } from "../context/CartContext";
-import styled from "styled-components";
+// DEPENDENCYS
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import styled from "styled-components";
 
 const StyledDiv = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
+// DEPENDENCYS
 import React, { useState } from "react";
-import "./itemCount.css";
 
 function ItemCount({ initial, stock, onAdd }) {
   const [count, setCount] = useState(initial);
@@ -14,15 +14,15 @@ function ItemCount({ initial, stock, onAdd }) {
 
   return (
     <div>
-      <button className="button" disabled={count <= 1} onClick={decrease}>
+      <button className="btn btn-danger mt-2 mx-2" disabled={count <= 1} onClick={decrease}>
         -
       </button>
       <span> {count} </span>
-      <button className="button" disabled={count >= stock} onClick={increase}>
+      <button className="btn btn-success mt-2 mx-2" disabled={count >= stock} onClick={increase}>
         +
       </button>
       <div>
-        <button className="button" disabled={stock <= 0} onClick={() => onAdd(count)}>
+        <button className="btn btn-primary mt-2" disabled={stock <= 0} onClick={() => onAdd(count)}>
           Agregar al carrito
         </button>
       </div>

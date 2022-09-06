@@ -1,12 +1,24 @@
+// COMPONENTS
+import ItemCount from "./ItemCount";
+// CONTEXT
+import { CartContext } from "../context/CartContext";
+// DEPENDENCYS
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
-import ItemCount from "./ItemCount";
 import styled from "styled-components";
 
 const StyledImg = styled.img `
-  width: 300px;
+  width: 400px;
+`
 
+const StyledDetail = styled.div `
+  text-align: left;
+`
+
+const StyledContainer = styled.div `
+    display: flex;
+    justify-content: space-evenly;
+    margin: 48 px;
 `
 
 const ItemDetail = ({ item }) => {
@@ -25,20 +37,24 @@ const ItemDetail = ({ item }) => {
   }, [count]);
 
   return (
-    <div>
-      <h3>ItemDetail</h3>
-      <h3>{item.name}</h3>
-      <p>{item.description}</p>
-      <StyledImg src={`${item.img}`} alt={`${item.img}`}></StyledImg>
-      {goToCart ? ( 
-        <div>
-          <Link as={Link} to="/cart"><button>Ir A Pagar</button></Link>
-          <Link as={Link} to="/*"><button>Continuar Comprando</button></Link>
-        </div>
-        ) : ( 
-          <ItemCount initial={1} stock={item.stock} onAdd={handleAdd} /> 
-      )}
-    </div>
+    <StyledContainer>
+      <div>
+        <StyledImg src={`${item.img}`} alt={`${item.img}`}></StyledImg>
+      </div>
+      <StyledDetail>
+        <h2>{item.name}</h2>
+        <h3>${item.price}</h3>
+        <p>{item.description}</p>
+        {goToCart ? (
+          <div>
+            <Link as={Link} to="/cart"><button className="btn btn-success mt-2 mx-2">Ir A Pagar</button></Link>
+            <Link as={Link} to="/*"><button className="btn btn-primary mt-2 mx-2">Continuar Comprando</button></Link>
+          </div>
+        ) : (
+          <ItemCount initial={1} stock={item.stock} onAdd={handleAdd} />
+        )}
+      </StyledDetail>
+    </StyledContainer>
   );
 };
 

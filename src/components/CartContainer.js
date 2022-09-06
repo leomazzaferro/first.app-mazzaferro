@@ -1,26 +1,24 @@
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
-import React , { useContext } from 'react'
-import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+// COMPONENTS
 import ItemCart from './ItemCart';
+// CONTEXT
+import { CartContext } from '../context/CartContext';
+// DEPENDENCYS
+import React , { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
+const StyledDiv = styled.div `
+  border-bottom: 1px solid;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 2rem;
+`
 
 const Cart = () => {
-  const { cart, totalPrice, cleanCart } = useContext(CartContext)
-
-
-  const sendOrder = () => {
-    const newOrder = {
-      buyer: {name: "leo", phone: 123456, email: "leomazza@gmail.com"},
-      items: cart,
-      total: totalPrice(),
-    }
-    const db = getFirestore();
-    const orederCollection = collection(db, "orders")
-    addDoc(orederCollection, newOrder)
-      .then(({ id }) => console.log({ id }))
-      .catch((error) => console.log(error))
-  }
+  const { cart, totalPrice, cleanCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   if (cart.length === 0) {
     return (
@@ -30,15 +28,20 @@ const Cart = () => {
       </div>
     )
   }
+
   return (
     <div>
+      <StyledDiv>
+        <h5>PRODUCTO</h5>
+        <h5>SUBTOTAL</h5>
+      </StyledDiv>
       <div>
         <ItemCart products={cart} />
       </div>
       <div>
-        <p>Precio Total:{totalPrice()}</p>
-        <button onClick={cleanCart}>Vaciar Carrito</button>
-        <button onClick={sendOrder}>Finalizar compra</button>
+        <p><strong>Precio Total: ${totalPrice()}</strong></p>
+        <button className='btn btn-danger mx-2' onClick={cleanCart}>Vaciar Carrito</button>
+        <button className='btn btn-success mx-2' onClick={()=>navigate("/checkout")}>Finalizar compra</button>
       </div>
     </div>
   )
